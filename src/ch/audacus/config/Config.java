@@ -28,7 +28,7 @@ public class Config {
 	}
 
 	public static void readConfig() {
-		Config.config = new HashMap<String, Object>();
+		Config.config = new HashMap<>();
 		// create string from file
 		final StringBuilder string = new StringBuilder();
 		Scanner scanner;
@@ -46,13 +46,12 @@ public class Config {
 	}
 
 	public static Map<String, Object> jsonToMap(final JSONObject object) throws JSONException {
-		final Map<String, Object> map = new HashMap<String, Object>();
+		final Map<String, Object> map = new HashMap<>();
 		final Iterator<String> iterator = object.keys();
 
 		while (iterator.hasNext()) {
 			final String key = iterator.next();
 			Object value = object.get(key);
-
 			if (value instanceof JSONArray) {
 				value = Config.jsonToList((JSONArray) value);
 			} else if (value instanceof JSONObject) {
@@ -64,7 +63,7 @@ public class Config {
 	}
 
 	public static List<Object> jsonToList(final JSONArray array) throws JSONException {
-		final List<Object> list = new ArrayList<Object>();
+		final List<Object> list = new ArrayList<>();
 
 		for (int i = 0; i < array.length(); i++) {
 			Object value = array.get(i);
